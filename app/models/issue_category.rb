@@ -26,7 +26,7 @@ class IssueCategory < ActiveRecord::Base
   
   attr_protected :project_id
 
-  named_scope :named, lambda {|arg| { :conditions => ["LOWER(#{table_name}.name) = LOWER(?)", arg.to_s.strip]}}
+  scope :named, lambda {|arg| { :conditions => ["LOWER(#{table_name}.name) = LOWER(?)", arg.to_s.strip]}}
 
   alias :destroy_without_reassign :destroy
 
