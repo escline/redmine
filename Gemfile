@@ -4,7 +4,7 @@ source :rubyforge
 source :gemcutter
 
 # gem 'bundler', '~> 1.0.0'
-gem 'rails', '3.0.11'
+gem 'rails', '3.1.3'
 
 gem 'dynamic_form'
 
