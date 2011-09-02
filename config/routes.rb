@@ -49,6 +49,35 @@ Redmine::Application.routes.draw do |map|
     end
   end
 
+  map.with_options :controller => 'boards' do |board_routes|
+    board_routes.with_options :conditions => {:method => :get} do |board_views|
+      board_views.connect 'projects/:project_id/boards', :action => 'index'
+      board_views.connect 'projects/:project_id/boards/new', :action => 'new'
+      board_views.connect 'projects/:project_id/boards/:id', :action => 'show'
+      board_views.connect 'projects/:project_id/boards/:id.:format', :action => 'show'
+      board_views.connect 'projects/:project_id/boards/:id/edit', :action => 'edit'
+    end
+    board_routes.with_options :conditions => {:method => :post} do |board_actions|
+      board_actions.connect 'projects/:project_id/boards', :action => 'new'
+      board_actions.connect 'projects/:project_id/boards/:id/:action', :action => /edit|destroy/
+    end
+  end
+
+  map.with_options :controller => 'documents' do |document_routes|
+    document_routes.with_options :conditions => {:method => :get} do |document_views|
+      document_views.connect 'projects/:project_id/documents', :action => 'index'
+      document_views.connect 'projects/:project_id/documents/new', :action => 'new'
+      document_views.connect 'documents/:id', :action => 'show'
+      document_views.connect 'documents/:id/edit', :action => 'edit'
+    end
+    document_routes.with_options :conditions => {:method => :post} do |document_actions|
+      document_actions.connect 'projects/:project_id/documents', :action => 'new'
+      document_actions.connect 'documents/:id/:action', :action => /destroy|edit/
+    end
+  end
+  
+  map.connect '/projects/:project_id/issues', :controller => 'issues', :action => 'index'
+
   map.resources :issue_moves, :only => [:new, :create], :path_prefix => '/issues', :as => 'move'
   map.resources :queries, :except => [:show]
 
