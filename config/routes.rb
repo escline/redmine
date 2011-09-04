@@ -165,7 +165,7 @@ Redmine::Application.routes.draw do |map|
     project.resources :queries, :only => [:new, :create]
     project.resources :issue_categories, :shallow => true
 
-    project.wiki_start_page 'wiki', :controller => 'wiki', :action => 'show', :conditions => {:method => :get}
+    project.wiki_start_page 'wiki/:id', :controller => 'wiki', :action => 'show', :conditions => {:method => :get}
     project.wiki_index 'wiki/index', :controller => 'wiki', :action => 'index', :conditions => {:method => :get}
     project.wiki_diff 'wiki/:id/diff/:version', :controller => 'wiki', :action => 'diff', :version => nil
     project.wiki_diff 'wiki/:id/diff/:version/vs/:version_from', :controller => 'wiki', :action => 'diff'
@@ -175,7 +175,8 @@ Redmine::Application.routes.draw do |map|
       :history => :get,
       :preview => :any,
       :protect => :post,
-      :add_attachment => :post
+      :add_attachment => :post,
+      :show => :get
     }, :collection => {
       :export => :get,
       :date_index => :get
