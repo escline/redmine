@@ -51,7 +51,7 @@ class NewsController < ApplicationController
         @news = News.new # for adding news inline
         render :layout => false if request.xhr?
       }
-      format.api
+      # format.api
       format.atom { render_feed(@newss, :title => (@project ? @project.name : Setting.app_title) + ": #{l(:label_news_plural)}") }
     end
   end
