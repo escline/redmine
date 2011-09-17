@@ -77,8 +77,6 @@ Redmine::Application.routes.draw do |map|
     end
   end
   
-  map.connect '/projects/:project_id/issues', :controller => 'issues', :action => 'index', :conditions => { :method => :get }
-
   map.resources :issue_moves, :only => [:new, :create], :path_prefix => '/issues', :as => 'move'
   map.resources :queries, :except => [:show]
 
@@ -131,18 +129,16 @@ Redmine::Application.routes.draw do |map|
   }
 
   # For nice "roadmap" in the url for the index action
-  map.connect 'projects/:project_id/roadmap', :controller => 'versions', :action => 'index'
+  map.connect '/projects/:project_id/roadmap', :controller => 'versions', :action => 'index'
   
-  # For nice "news" in the url for the index action
-  map.connect 'projects/:project_id/news', :controller => 'news', :action => 'index'
-
-  map.all_news 'news', :controller => 'news', :action => 'index'
-  map.formatted_all_news 'news.:format', :controller => 'news', :action => 'index'
   map.preview_news '/news/preview', :controller => 'previews', :action => 'news'
-  map.connect 'news/:id/comments', :controller => 'comments', :action => 'create', :conditions => {:method => :post}
-  map.connect 'news/:id/comments/:comment_id', :controller => 'comments', :action => 'destroy', :conditions => {:method => :delete}
 
-  map.resources :projects, :member => {
+  map.wiki_start_page '/projects/:project_id/wiki/index', :controller => 'wiki', :action => 'index', :conditions => {:method => :get}
+  map.wiki_start_page '/projects/:project_id/wiki/date_index', :controller => 'wiki', :action => 'date_index', :conditions => {:method => :get}
+  map.wiki_start_page '/projects/:project_id/wiki/export', :controller => 'wiki', :action => 'export', :conditions => {:method => :get}
+  map.wiki_start_page '/projects/:project_id/wiki/:id', :controller => 'wiki', :action => 'show', :conditions => {:method => :get}
+
+  map.resources :projects, :shallow => true, :member => {
     :copy => [:get, :post],
     :settings => :get,
     :modules => :post,
@@ -154,9 +150,18 @@ Redmine::Application.routes.draw do |map|
       issues.resources :time_entries, :controller => 'timelog'
     end
     project.resources :files, :only => [:index, :new, :create]
-    project.resources :versions, :shallow => true, :collection => {:close_completed => :put}, :member => {:status_by => :post}
-    project.resources :news, :shallow => true
-    project.resources :time_entries, :controller => 'timelog', :path_prefix => 'projects/:project_id'
+    project.resources :versions, :collection => {:close_completed => :put}, :member => {:status_by => :post}
+    project.resources :news, :shallow => true do |news|
+      news.resources :comments
+    end
+    project.resources :time_entries, :controller => 'timelog'
+
+    project.resources :issues, :shallow => true do |issues|
+      issues.resources :time_entries, :controller => 'timelog'
+      issues.resources :relations, :controller => 'issue_relations', :only => [:index, :show, :create, :destroy]
+      issues.resources :time_entries, :controller => 'timelog'
+    end
+
     project.resources :queries, :only => [:new, :create]
     project.resources :issue_categories, :shallow => true
     project.resources :documents, :shallow => true, :member => {:add_attachment => :post}
@@ -164,22 +169,20 @@ Redmine::Application.routes.draw do |map|
 
     project.connect 'settings/:tab', :controller => 'projects', :action => 'settings', :conditions => {:method => :get}, :path_prefix => 'projects/:id'
 
-    project.wiki_start_page 'wiki/index', :controller => 'wiki', :action => 'index', :conditions => {:method => :get}
-    project.wiki_start_page 'wiki/date_index', :controller => 'wiki', :action => 'date_index', :conditions => {:method => :get}
-    project.wiki_start_page 'wiki/export', :controller => 'wiki', :action => 'export', :conditions => {:method => :get}
-    project.wiki_start_page 'wiki/:id', :controller => 'wiki', :action => 'show', :conditions => {:method => :get}
-    project.wiki_diff 'wiki/:id/diff/:version', :controller => 'wiki', :action => 'diff', :version => nil
-    project.wiki_diff 'wiki/:id/diff/:version/vs/:version_from', :controller => 'wiki', :action => 'diff'
-    project.wiki_annotate 'wiki/:id/annotate/:version', :controller => 'wiki', :action => 'annotate'
-    project.wiki_rename 'wiki/:id/rename', :controller => 'wiki', :action => 'rename'
-    project.resources :wiki, :except => [:new, :create], :member => {
-      :rename => [:get, :post],
+    project.resources :wiki, :shallow => true, :except => [:new, :create], :member => {
+      :rename => [:get, :put],
       :history => :get,
       :preview => :any,
       :protect => :post,
       :add_attachment => :post
     }
-
+    project.wiki_diff 'wiki/:id/diff/:version', :controller => 'wiki', :action => 'diff', :version => nil
+    project.wiki_diff 'wiki/:id/diff/:version/vs/:version_from', :controller => 'wiki', :action => 'diff'
+    project.wiki_annotate 'wiki/:id/annotate/:version', :controller => 'wiki', :action => 'annotate'
+    
+    project.resources :queries
+    project.resources :documents
+    project.resources :boards
   end
 
   # Destroy uses a get request to prompt the user before the actual DELETE request
@@ -232,8 +235,6 @@ Redmine::Application.routes.draw do |map|
 
   #left old routes at the bottom for backwards compat
   map.connect 'boards/:board_id/topics/:action/:id', :controller => 'messages'
-  map.connect 'wiki/:id/:page/:action', :page => nil, :controller => 'wiki'
-  map.connect 'projects/:project_id/news/:action', :controller => 'news'
   map.connect 'projects/:project_id/timelog/:action/:id', :controller => 'timelog', :project_id => /.+/
   map.with_options :controller => 'repositories' do |omap|
     omap.repositories_show 'repositories/browse/:id/*path', :action => 'browse'
