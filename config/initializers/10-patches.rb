@@ -104,7 +104,7 @@ ActionMailer::Base.send :include, AsynchronousMailer
 
 module ActionController
   module MimeResponds
-    class Responder
+    class Collector
       def api(&block)
         any(:xml, :json, &block)
       end
