@@ -54,7 +54,7 @@
   <th class="line-num"><%= line.nb_line_left %></th>
   <th class="line-num"><%= line.nb_line_right %></th>
   <td class="line-code <%= line.type_diff %>">
-    <pre><%= Redmine::CodesetUtil.to_utf8_by_setting(line.html_line) %></pre>
+    <pre><%= Redmine::CodesetUtil.to_utf8_by_setting(line.html_line).html_safe %></pre>
   </td>
 </tr>
 <% end -%>
