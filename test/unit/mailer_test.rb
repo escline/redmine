@@ -414,7 +414,7 @@ class MailerTest < ActiveSupport::TestCase
       ActionMailer::Base.deliveries.clear
       assert Mailer.register(token).deliver
       mail = ActionMailer::Base.deliveries.last
-      assert mail.body.include?("https://redmine.foo/account/activate?token=#{token.value}")
+      assert mail.body.encoded.include?("https://redmine.foo/account/activate?token=#{token.value}")
     end
   end
 
@@ -431,7 +431,7 @@ class MailerTest < ActiveSupport::TestCase
     assert_equal 1, ActionMailer::Base.deliveries.size
     mail = ActionMailer::Base.deliveries.last
     assert mail.bcc.include?('dlopper@somenet.foo')
-    assert mail.body.include?('Bug #3: Error 281 when updating a recipe')
+    assert mail.body.encoded.include?('Bug #3: Error 281 when updating a recipe')
     assert_equal '1 issue(s) due in the next 42 days', mail.subject
   end
 
@@ -442,7 +442,7 @@ class MailerTest < ActiveSupport::TestCase
     assert_equal 1, ActionMailer::Base.deliveries.size # No mail for dlopper
     mail = ActionMailer::Base.deliveries.last
     assert mail.bcc.include?('dlopper@somenet.foo')
-    assert mail.body.include?('Bug #3: Error 281 when updating a recipe')
+    assert mail.body.encoded.include?('Bug #3: Error 281 when updating a recipe')
   end
 
   def last_email
@@ -460,7 +460,7 @@ class MailerTest < ActiveSupport::TestCase
     user.language = 'fr'
     Mailer.account_activated(user).deliver
     mail = ActionMailer::Base.deliveries.last
-    assert mail.body.include?('Votre compte')
+    assert mail.body.encoded.include?('Votre compte')
 
     assert_equal :it, current_language
   end
