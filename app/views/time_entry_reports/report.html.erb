@@ -62,8 +62,8 @@
 </table>
 </div>
 
-<% other_formats_links do |f| %>
-  <%= f.link_to 'CSV', :url => params %>
+<%= other_formats_links do |f| %>
+  <% f.link_to 'CSV', :url => params %>
 <% end %>
 <% end %>
 <% end %>
