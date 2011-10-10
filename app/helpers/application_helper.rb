@@ -814,7 +814,7 @@ module ApplicationHelper
 
   # Renders the TOC with given headings
   def replace_toc(text, headings)
-    text.gsub!(TOC_RE) do
+    text.gsub(TOC_RE) do
       if headings.empty?
         ''
       else
