@@ -129,7 +129,13 @@ module Redmine
           if atta
             return atta.diskfile
           else
-            return nil
+            attrname_utf8 = Redmine::CodesetUtil.to_utf8(attrname, l(:general_pdf_encoding))
+            # check of unsafe URI
+            if attrname_utf8 =~ /[^-_.!~*'()a-zA-Z\d;\/?:@&=+$,\[\]%]/n
+              return URI.encode(attrname_utf8)
+            else
+              return attrname_utf8
+            end
           end
         end
 
