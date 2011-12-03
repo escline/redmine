@@ -15,7 +15,7 @@ file 'config/initializers/session_store.rb' do
 # change this key, all old sessions will become invalid! Make sure the
 # secret is at least 30 characters and all random, no regular words or
 # you'll be exposed to dictionary attacks.
-ActionController::Base.session = {
+Rails.application.config.action_dispatch.session = {
   :key => '_redmine_session',
   #
   # Uncomment and edit the :session_path below if are hosting your Redmine
