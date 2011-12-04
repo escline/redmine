@@ -62,19 +62,19 @@ h4, .wiki h3 {font-size: 13px;padding: 2px 10px 1px 0px;margin-bottom: 5px; bord
 #admin-menu li {margin: 0;  padding: 0 0 12px 0; list-style-type:none;}
 
 #admin-menu a { background-position: 0% 40%; background-repeat: no-repeat; padding-left: 20px; padding-top: 2px; padding-bottom: 3px;}
-#admin-menu a.projects { background-image: url(/assets/projects.png); }
-#admin-menu a.users { background-image: url(/assets/user.png); }
-#admin-menu a.groups { background-image: url(/assets/group.png); }
-#admin-menu a.roles { background-image: url(/assets/database_key.png); }
-#admin-menu a.trackers { background-image: url(/assets/ticket.png); }
-#admin-menu a.issue_statuses { background-image: url(/assets/ticket_edit.png); }
-#admin-menu a.workflows { background-image: url(/assets/ticket_go.png); }
-#admin-menu a.custom_fields { background-image: url(/assets/textfield.png); }
-#admin-menu a.enumerations { background-image: url(/assets/text_list_bullets.png); }
-#admin-menu a.settings { background-image: url(/assets/changeset.png); }
-#admin-menu a.plugins { background-image: url(/assets/plugin.png); }
-#admin-menu a.info { background-image: url(/assets/help.png); }
-#admin-menu a.server_authentication { background-image: url(/assets/server_key.png); }
+#admin-menu a.projects { background-image: url(<%= asset_path "projects.png" %>); }
+#admin-menu a.users { background-image: url(<%= asset_path "user.png" %>); }
+#admin-menu a.groups { background-image: url(<%= asset_path "group.png" %>); }
+#admin-menu a.roles { background-image: url(<%= asset_path "database_key.png" %>); }
+#admin-menu a.trackers { background-image: url(<%= asset_path "ticket.png" %>); }
+#admin-menu a.issue_statuses { background-image: url(<%= asset_path "ticket_edit.png" %>); }
+#admin-menu a.workflows { background-image: url(<%= asset_path "ticket_go.png" %>); }
+#admin-menu a.custom_fields { background-image: url(<%= asset_path "textfield.png" %>); }
+#admin-menu a.enumerations { background-image: url(<%= asset_path "text_list_bullets.png" %>); }
+#admin-menu a.settings { background-image: url(<%= asset_path "changeset.png" %>); }
+#admin-menu a.plugins { background-image: url(<%= asset_path "plugin.png" %>); }
+#admin-menu a.info { background-image: url(<%= asset_path "help.png" %>); }
+#admin-menu a.server_authentication { background-image: url(<%= asset_path "server_key.png" %>); }
 
 #main {background-color:#EEEEEE;}
 
@@ -168,8 +168,8 @@ tr.entry td.age { text-align: right; }
 tr.entry.file td.filename a { margin-left: 16px; }
 tr.entry.file td.filename_no_report a { margin-left: 16px; }
 
-tr span.expander {background-image: url(/assets/bullet_toggle_plus.png); padding-left: 8px; margin-left: 0; cursor: pointer;}
-tr.open span.expander {background-image: url(/assets/bullet_toggle_minus.png);}
+tr span.expander {background-image: url(<%= asset_path "bullet_toggle_plus.png" %>); padding-left: 8px; margin-left: 0; cursor: pointer;}
+tr.open span.expander {background-image: url(<%= asset_path "bullet_toggle_minus.png" %>);}
 
 tr.changeset { height: 20px }
 tr.changeset ul, ol { margin-top: 0px; margin-bottom: 0px; }
@@ -229,8 +229,8 @@ table p {margin:0;}
 .even {background-color: #fff;}
 
 a.sort { padding-right: 16px; background-position: 100% 50%; background-repeat: no-repeat; }
-a.sort.asc  { background-image: url(/assets/sort_asc.png); }
-a.sort.desc { background-image: url(/assets/sort_desc.png); }
+a.sort.asc  { background-image: url(<%= asset_path "sort_asc.png" %>); }
+a.sort.desc { background-image: url(<%= asset_path "sort_desc.png" %>); }
 
 table.attributes { width: 100% }
 table.attributes th { vertical-align: top; text-align: left; }
@@ -308,7 +308,7 @@ div.issue span.private { position:relative; bottom: 2px; text-transform: upperca
 
 fieldset.collapsible { border-width: 1px 0 0 0; font-size: 0.9em; }
 fieldset.collapsible legend { padding-left: 16px; background: url(/assets/arrow_expanded.png) no-repeat 0% 40%; cursor:pointer; }
-fieldset.collapsible.collapsed legend { background-image: url(/assets/arrow_collapsed.png); }
+fieldset.collapsible.collapsed legend { background-image: url(<%= asset_path "arrow_collapsed.png" %>); }
 
 fieldset#date-range p { margin: 2px 0 2px 0; }
 fieldset#filters table { border-collapse: collapse; }
@@ -341,21 +341,21 @@ div#search-results-counts {float:right;}
 div#search-results-counts ul { margin-top: 0.5em; }
 div#search-results-counts  li { list-style-type:none; float: left; margin-left: 1em; }
   
-dt.issue { background-image: url(/assets/ticket.png); }
-dt.issue-edit { background-image: url(/assets/ticket_edit.png); }
-dt.issue-closed { background-image: url(/assets/ticket_checked.png); }
-dt.issue-note { background-image: url(/assets/ticket_note.png); }
-dt.changeset { background-image: url(/assets/changeset.png); }
-dt.news { background-image: url(/assets/news.png); }
-dt.message { background-image: url(/assets/message.png); }
-dt.reply { background-image: url(/assets/comments.png); }
-dt.wiki-page { background-image: url(/assets/wiki_edit.png); }
-dt.attachment { background-image: url(/assets/attachment.png); }
-dt.document { background-image: url(/assets/document.png); }
-dt.project { background-image: url(/assets/projects.png); }
-dt.time-entry { background-image: url(/assets/time.png); }
+dt.issue { background-image: url(<%= asset_path "ticket.png" %>); }
+dt.issue-edit { background-image: url(<%= asset_path "ticket_edit.png" %>); }
+dt.issue-closed { background-image: url(<%= asset_path "ticket_checked.png" %>); }
+dt.issue-note { background-image: url(<%= asset_path "ticket_note.png" %>); }
+dt.changeset { background-image: url(<%= asset_path "changeset.png" %>); }
+dt.news { background-image: url(<%= asset_path "news.png" %>); }
+dt.message { background-image: url(<%= asset_path "message.png" %>); }
+dt.reply { background-image: url(<%= asset_path "comments.png" %>); }
+dt.wiki-page { background-image: url(<%= asset_path "wiki_edit.png" %>); }
+dt.attachment { background-image: url(<%= asset_path "attachment.png" %>); }
+dt.document { background-image: url(<%= asset_path "document.png" %>); }
+dt.project { background-image: url(<%= asset_path "projects.png" %>); }
+dt.time-entry { background-image: url(<%= asset_path "time.png" %>); }
 
-#search-results dt.issue.closed { background-image: url(/assets/ticket_checked.png); }
+#search-results dt.issue.closed { background-image: url(<%= asset_path "ticket_checked.png" %>); }
 
 div#roadmap .related-issues { margin-bottom: 1em; }
 div#roadmap .related-issues td.checkbox { display: none; }
@@ -570,7 +570,7 @@ html>body #ajax-indicator { position: fixed; }
 #ajax-indicator span {
 background-position: 0% 40%;
 background-repeat: no-repeat;
-background-image: url(/assets/loading.gif);
+background-image: url(<%= asset_path "loading.gif" %>);
 padding-left: 26px;
 vertical-align: bottom;
 }
@@ -751,7 +751,7 @@ div.wiki .external {
     background-position: 0% 60%;
     background-repeat: no-repeat;
     padding-left: 12px;
-    background-image: url(/assets/external.png);
+    background-image: url(<%= asset_path "external.png" %>);
 }
 
 div.wiki a.new {
@@ -862,24 +862,24 @@ background-image:url('/assets/close_hl.png');
 .task.label {width:100%;}
 .task.label.project, .task.label.version { font-weight: bold; }
 
-.task_late { background:#f66 url(/assets/task_late.png); border: 1px solid #f66; }
-.task_done { background:#00c600 url(/assets/task_done.png); border: 1px solid #00c600; }
-.task_todo { background:#aaa url(/assets/task_todo.png); border: 1px solid #aaa; }
+.task_late { background:#f66 url(<%= asset_path "task_late.png" %>); border: 1px solid #f66; }
+.task_done { background:#00c600 url(<%= asset_path "task_done.png" %>); border: 1px solid #00c600; }
+.task_todo { background:#aaa url(<%= asset_path "task_todo.png" %>); border: 1px solid #aaa; }
 
 .task_todo.parent { background: #888; border: 1px solid #888; height: 3px;}
 .task_late.parent, .task_done.parent { height: 3px;}
 .task.parent.marker.starting  { position: absolute; background: url(/assets/task_parent_end.png) no-repeat 0 0; width: 8px; height: 16px; margin-left: -4px; left: 0px; top: -1px;}
 .task.parent.marker.ending { position: absolute; background: url(/assets/task_parent_end.png) no-repeat 0 0; width: 8px; height: 16px; margin-left: -4px; right: 0px; top: -1px;}
 
-.version.task_late { background:#f66 url(/assets/milestone_late.png); border: 1px solid #f66; height: 2px; margin-top: 3px;}
-.version.task_done { background:#00c600 url(/assets/milestone_done.png); border: 1px solid #00c600; height: 2px; margin-top: 3px;}
-.version.task_todo { background:#fff url(/assets/milestone_todo.png); border: 1px solid #fff; height: 2px; margin-top: 3px;}
-.version.marker { background-image:url(/assets/version_marker.png); background-repeat: no-repeat; border: 0; margin-left: -4px; margin-top: 1px; }
+.version.task_late { background:#f66 url(<%= asset_path "milestone_late.png" %>); border: 1px solid #f66; height: 2px; margin-top: 3px;}
+.version.task_done { background:#00c600 url(<%= asset_path "milestone_done.png" %>); border: 1px solid #00c600; height: 2px; margin-top: 3px;}
+.version.task_todo { background:#fff url(<%= asset_path "milestone_todo.png" %>); border: 1px solid #fff; height: 2px; margin-top: 3px;}
+.version.marker { background-image:url(<%= asset_path "version_marker.png" %>); background-repeat: no-repeat; border: 0; margin-left: -4px; margin-top: 1px; }
 
-.project.task_late { background:#f66 url(/assets/milestone_late.png); border: 1px solid #f66; height: 2px; margin-top: 3px;}
-.project.task_done { background:#00c600 url(/assets/milestone_done.png); border: 1px solid #00c600; height: 2px; margin-top: 3px;}
-.project.task_todo { background:#fff url(/assets/milestone_todo.png); border: 1px solid #fff; height: 2px; margin-top: 3px;}
-.project.marker { background-image:url(/assets/project_marker.png); background-repeat: no-repeat; border: 0; margin-left: -4px; margin-top: 1px; }
+.project.task_late { background:#f66 url(<%= asset_path "milestone_late.png" %>); border: 1px solid #f66; height: 2px; margin-top: 3px;}
+.project.task_done { background:#00c600 url(<%= asset_path "milestone_done.png" %>); border: 1px solid #00c600; height: 2px; margin-top: 3px;}
+.project.task_todo { background:#fff url(<%= asset_path "milestone_todo.png" %>); border: 1px solid #fff; height: 2px; margin-top: 3px;}
+.project.marker { background-image:url(<%= asset_path "project_marker.png" %>); background-repeat: no-repeat; border: 0; margin-left: -4px; margin-top: 1px; }
 
 .version-behind-schedule a, .issue-behind-schedule a {color: #f66914;}
 .version-overdue a, .issue-overdue a, .project-overdue a {color: #f00;}
@@ -893,57 +893,57 @@ padding-top: 2px;
 padding-bottom: 3px;
 }
 
-.icon-add { background-image: url(/assets/add.png); }
-.icon-edit { background-image: url(/assets/edit.png); }
-.icon-copy { background-image: url(/assets/copy.png); }
-.icon-duplicate { background-image: url(/assets/duplicate.png); }
-.icon-del { background-image: url(/assets/delete.png); }
-.icon-move { background-image: url(/assets/move.png); }
-.icon-save { background-image: url(/assets/save.png); }
-.icon-cancel { background-image: url(/assets/cancel.png); }
-.icon-multiple { background-image: url(/assets/table_multiple.png); }
-.icon-folder { background-image: url(/assets/folder.png); }
-.open .icon-folder { background-image: url(/assets/folder_open.png); }
-.icon-package { background-image: url(/assets/package.png); }
-.icon-user { background-image: url(/assets/user.png); }
-.icon-projects { background-image: url(/assets/projects.png); }
-.icon-help { background-image: url(/assets/help.png); }
-.icon-attachment  { background-image: url(/assets/attachment.png); }
-.icon-history  { background-image: url(/assets/history.png); }
-.icon-time  { background-image: url(/assets/time.png); }
-.icon-time-add  { background-image: url(/assets/time_add.png); }
-.icon-stats  { background-image: url(/assets/stats.png); }
-.icon-warning  { background-image: url(/assets/warning.png); }
-.icon-fav  { background-image: url(/assets/fav.png); }
-.icon-fav-off  { background-image: url(/assets/fav_off.png); }
-.icon-reload  { background-image: url(/assets/reload.png); }
-.icon-lock  { background-image: url(/assets/locked.png); }
-.icon-unlock  { background-image: url(/assets/unlock.png); }
-.icon-checked  { background-image: url(/assets/true.png); }
-.icon-details  { background-image: url(/assets/zoom_in.png); }
-.icon-report  { background-image: url(/assets/report.png); }
-.icon-comment  { background-image: url(/assets/comment.png); }
-.icon-summary  { background-image: url(/assets/lightning.png); }
-.icon-server-authentication { background-image: url(/assets/server_key.png); }
-.icon-issue { background-image: url(/assets/ticket.png); }
-.icon-zoom-in { background-image: url(/assets/zoom_in.png); }
-.icon-zoom-out { background-image: url(/assets/zoom_out.png); }
-.icon-passwd { background-image: url(/assets/textfield_key.png); }
+.icon-add { background-image: url(<%= asset_path "add.png" %>); }
+.icon-edit { background-image: url(<%= asset_path "edit.png" %>); }
+.icon-copy { background-image: url(<%= asset_path "copy.png" %>); }
+.icon-duplicate { background-image: url(<%= asset_path "duplicate.png" %>); }
+.icon-del { background-image: url(<%= asset_path "delete.png" %>); }
+.icon-move { background-image: url(<%= asset_path "move.png" %>); }
+.icon-save { background-image: url(<%= asset_path "save.png" %>); }
+.icon-cancel { background-image: url(<%= asset_path "cancel.png" %>); }
+.icon-multiple { background-image: url(<%= asset_path "table_multiple.png" %>); }
+.icon-folder { background-image: url(<%= asset_path "folder.png" %>); }
+.open .icon-folder { background-image: url(<%= asset_path "folder_open.png" %>); }
+.icon-package { background-image: url(<%= asset_path "package.png" %>); }
+.icon-user { background-image: url(<%= asset_path "user.png" %>); }
+.icon-projects { background-image: url(<%= asset_path "projects.png" %>); }
+.icon-help { background-image: url(<%= asset_path "help.png" %>); }
+.icon-attachment  { background-image: url(<%= asset_path "attachment.png" %>); }
+.icon-history  { background-image: url(<%= asset_path "history.png" %>); }
+.icon-time  { background-image: url(<%= asset_path "time.png" %>); }
+.icon-time-add  { background-image: url(<%= asset_path "time_add.png" %>); }
+.icon-stats  { background-image: url(<%= asset_path "stats.png" %>); }
+.icon-warning  { background-image: url(<%= asset_path "warning.png" %>); }
+.icon-fav  { background-image: url(<%= asset_path "fav.png" %>); }
+.icon-fav-off  { background-image: url(<%= asset_path "fav_off.png" %>); }
+.icon-reload  { background-image: url(<%= asset_path "reload.png" %>); }
+.icon-lock  { background-image: url(<%= asset_path "locked.png" %>); }
+.icon-unlock  { background-image: url(<%= asset_path "unlock.png" %>); }
+.icon-checked  { background-image: url(<%= asset_path "true.png" %>); }
+.icon-details  { background-image: url(<%= asset_path "zoom_in.png" %>); }
+.icon-report  { background-image: url(<%= asset_path "report.png" %>); }
+.icon-comment  { background-image: url(<%= asset_path "comment.png" %>); }
+.icon-summary  { background-image: url(<%= asset_path "lightning.png" %>); }
+.icon-server-authentication { background-image: url(<%= asset_path "server_key.png" %>); }
+.icon-issue { background-image: url(<%= asset_path "ticket.png" %>); }
+.icon-zoom-in { background-image: url(<%= asset_path "zoom_in.png" %>); }
+.icon-zoom-out { background-image: url(<%= asset_path "zoom_out.png" %>); }
+.icon-passwd { background-image: url(<%= asset_path "textfield_key.png" %>); }
 
-.icon-file { background-image: url(/assets/files/default.png); }
-.icon-file.text-plain { background-image: url(/assets/files/text.png); }
-.icon-file.text-x-c { background-image: url(/assets/files/c.png); }
-.icon-file.text-x-csharp { background-image: url(/assets/files/csharp.png); }
-.icon-file.text-x-php { background-image: url(/assets/files/php.png); }
-.icon-file.text-x-ruby { background-image: url(/assets/files/ruby.png); }
-.icon-file.text-xml { background-image: url(/assets/files/xml.png); }
-.icon-file.image-gif { background-image: url(/assets/files/image.png); }
-.icon-file.image-jpeg { background-image: url(/assets/files/image.png); }
-.icon-file.image-png { background-image: url(/assets/files/image.png); }
-.icon-file.image-tiff { background-image: url(/assets/files/image.png); }
-.icon-file.application-pdf { background-image: url(/assets/files/pdf.png); }
-.icon-file.application-zip { background-image: url(/assets/files/zip.png); }
-.icon-file.application-x-gzip { background-image: url(/assets/files/zip.png); }
+.icon-file { background-image: url(<%= asset_path "files/default.png" %>); }
+.icon-file.text-plain { background-image: url(<%= asset_path "files/text.png" %>); }
+.icon-file.text-x-c { background-image: url(<%= asset_path "files/c.png" %>); }
+.icon-file.text-x-csharp { background-image: url(<%= asset_path "files/csharp.png" %>); }
+.icon-file.text-x-php { background-image: url(<%= asset_path "files/php.png" %>); }
+.icon-file.text-x-ruby { background-image: url(<%= asset_path "files/ruby.png" %>); }
+.icon-file.text-xml { background-image: url(<%= asset_path "files/xml.png" %>); }
+.icon-file.image-gif { background-image: url(<%= asset_path "files/image.png" %>); }
+.icon-file.image-jpeg { background-image: url(<%= asset_path "files/image.png" %>); }
+.icon-file.image-png { background-image: url(<%= asset_path "files/image.png" %>); }
+.icon-file.image-tiff { background-image: url(<%= asset_path "files/image.png" %>); }
+.icon-file.application-pdf { background-image: url(<%= asset_path "files/pdf.png" %>); }
+.icon-file.application-zip { background-image: url(<%= asset_path "files/zip.png" %>); }
+.icon-file.application-x-gzip { background-image: url(<%= asset_path "files/zip.png" %>); }
 
 img.gravatar {
     padding: 2px;
