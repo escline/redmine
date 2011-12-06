@@ -136,7 +136,7 @@ Redmine::Application.routes.draw do |map|
   map.resources :projects, :shallow => true, :member => {
     :copy => [:get, :post],
     :settings => :get,
-    :modules => :post,
+    :modules => :put,
     :archive => :post,
     :unarchive => :post
   } do |project|

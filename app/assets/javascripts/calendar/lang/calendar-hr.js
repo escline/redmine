@@ -51,7 +51,7 @@ Calendar._FD = 0;
 Calendar._MN = new Array
 ("Sijecanj",
  "Veljaca",
- "Ožujak",
+ "Ozujak",
  "Travanj",
  "Svibanj",
  "Lipanj",
@@ -66,7 +66,7 @@ Calendar._MN = new Array
 Calendar._SMN = new Array
 ("Sij",
  "Velj",
- "Ožu",
+ "Ozu",
  "Tra",
  "Svi",
  "Lip",
@@ -100,7 +100,7 @@ Calendar._TT["ABOUT_TIME"] = "\n\n" +
 
 Calendar._TT["PREV_YEAR"] = "Prethodna godina (hold for menu)";
 Calendar._TT["PREV_MONTH"] = "Prethodni mjesec (hold for menu)";
-Calendar._TT["GO_TODAY"] = "Na današnji dan";   
+Calendar._TT["GO_TODAY"] = "Na danasnji dan";   
 Calendar._TT["NEXT_MONTH"] = "Naredni mjesec (hold for menu)";
 Calendar._TT["NEXT_YEAR"] = "Naredna godina (hold for menu)";
 Calendar._TT["SEL_DATE"] = "Odaberite datum";
@@ -109,7 +109,7 @@ Calendar._TT["PART_TODAY"] = " (Danas)";
 
 // the following is to inform that "%s" is to be the first day of week
 // %s will be replaced with the day name.
-Calendar._TT["DAY_FIRST"] = "Prikaži %s prvo";
+Calendar._TT["DAY_FIRST"] = "Prikazi %s prvo";
 
 // This may be locale-dependent.  It specifies the week-end days, as an array
 // of comma-separated numbers.  The numbers are from 0 to 6: 0 means Sunday, 1

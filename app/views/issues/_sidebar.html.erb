@@ -13,5 +13,5 @@
 <% end %>
 <%= call_hook(:view_issues_sidebar_planning_bottom) %>
 
-<%= render_sidebar_queries %>
+<%= render_sidebar_queries.html_safe %>
 <%= call_hook(:view_issues_sidebar_queries_bottom) %>

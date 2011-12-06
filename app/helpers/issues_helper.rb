@@ -148,7 +148,7 @@ module IssuesHelper
     content_tag('h3', h(title)) +
       queries.collect {|query|
           link_to(h(query.name), url_params.merge(:query_id => query))
-        }.join('<br />')
+        }.join('<br />').html_safe
   end
 
   def render_sidebar_queries
